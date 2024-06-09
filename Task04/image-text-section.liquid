@@ -1,0 +1,50 @@
+{% schema %}
+{
+  "name": "Image + Text Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Handcrafted and Responsibly Sourced"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Learn More"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image + Text Section",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="image-text-section">
+  <div class="image-text-section__image-container">
+    <img src="{{ section.settings.image | img_url: '1024x' }}" alt="Description" class="image-text-section__image">
+  </div>
+  <div class="image-text-section__text-container">
+    <h2>{{ section.settings.heading }}</h2>
+    <p class="hidden">{{ section.settings.text }}</p>
+    <button class="image-text-section__button">{{ section.settings.button_text }}</button>
+  </div>
+</section>
+
+<script src="{{ 'image-text-section.js' | asset_url }}"></script>
+<link rel="stylesheet" href="{{ 'image-text-section.css' | asset_url }}">
